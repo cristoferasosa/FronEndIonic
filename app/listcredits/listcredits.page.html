@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+      
+          <ion-buttons slot="start">
+                  <ion-back-button defaultHref="paneladmin"></ion-back-button>
+          </ion-buttons>
+      <ion-title>
+          Listado De Creditos<ion-icon name="paper"></ion-icon>
+      </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <button (click)="ObtenerCreditos()" class="desing">Obtener Creditos</button>
+  <ion-list *ngFor="let credito of creditos">
+      <ion-item>
+          <ion-icon name="cash"></ion-icon>
+          <ion-label>Id:</ion-label>
+          <ion-label>{{credito.id_prestamo}}</ion-label>          
+          <ion-label>IdUsuario:</ion-label>
+          <ion-label>{{credito.id_usuario}}</ion-label>          
+          <ion-label>Monto:</ion-label>
+          <ion-label>{{credito.monto_solicitado}}</ion-label>          
+          <ion-label>Estado:</ion-label>
+          <ion-label>{{credito.estado}}</ion-label>          
+          <ion-label>Descripción:</ion-label>
+          <ion-label>{{credito.descripcion}}</ion-label>
+      </ion-item>
+  </ion-list>
+</ion-content>

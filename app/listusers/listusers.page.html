@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+          <ion-buttons slot="start">
+                  <ion-back-button defaultHref="paneladmin"></ion-back-button>
+          </ion-buttons>
+      <ion-title>Listado de Usuarios <ion-icon name="list-box"></ion-icon></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <button (click)="ObtenerUsuarios()" class="btn btn-link" block>Obtener Usuarios</button>
+  <ion-list *ngFor="let usuario of usuarios">
+      <ion-item>
+          <ion-icon name="person"></ion-icon>          
+            <label>Nombre: </label>
+            <ion-label>{{usuario.nombre}}</ion-label>
+            <label>Apellido: </label>
+            <ion-label>{{usuario.apellido}}</ion-label>
+            <label>Edad: </label>
+            <ion-label>{{usuario.edad}}</ion-label>             
+      </ion-item>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,35 @@
+<ion-grid style="height: 100%">
+    <ion-row justify-content-center align-items-center style="height: 100%">
+      <ion-card id = "login-card">  
+<ion-header>
+    <ion-toolbar>
+      <ion-title class="text-center">
+        Iniciar Sesion
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+              <form [formGroup]="todo" (ngSubmit)="logForm()">
+                <ion-item>
+                  <ion-label>Correo:<ion-icon name="mail"></ion-icon></ion-label>        
+                  <ion-input type="email" formControlName="correo"required></ion-input>
+                </ion-item> 
+            
+                <ion-item>
+                  <ion-label>Contraseña:<ion-icon name="key"></ion-icon></ion-label>        
+                  <ion-input type="password" formControlName="contra" required></ion-input>
+                </ion-item>
+                <br>
+                <button ion-button color="primary" block type="submit" [disabled]="!todo.valid" block>Ingresar</button>        
+              </form>
+  
+    <ion-card href="/createuser" color="success">
+      <h4>Registrarse</h4>
+    </ion-card>
+    <ion-card  href="/paneladmin" color="success">
+      <h4>Panel de administración</h4>
+    </ion-card>
+
+   </ion-card>
+  </ion-row>
+</ion-grid>
