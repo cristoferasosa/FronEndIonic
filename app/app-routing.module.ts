@@ -7,11 +7,12 @@ const routes: Routes = [
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
   },
   { path: 'login', loadChildren: './login/login.module#LoginPageModule' },
+  { path: 'paneladmin', loadChildren: './paneladmin/paneladmin.module#PaneladminPageModule' },
   { path: 'solicitucredito', loadChildren: './solicitucredito/solicitucredito.module#SolicitucreditoPageModule' },
   { path: 'listusers', loadChildren: './listusers/listusers.module#ListusersPageModule' },
   { path: 'listcredits', loadChildren: './listcredits/listcredits.module#ListcreditsPageModule' },
-  { path: 'createuser', loadChildren: './createuser/createuser.module#CreateuserPageModule' },
-  { path: 'paneladmin', loadChildren: './paneladmin/paneladmin.module#PaneladminPageModule' }
+  { path: 'createuser', loadChildren: './createuser/createuser.module#CreateuserPageModule' }
+
 ];
 @NgModule({
   imports: [

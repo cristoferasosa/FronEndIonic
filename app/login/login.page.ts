@@ -31,8 +31,9 @@ export class LoginPage {
 }
 
   logForm() {
-    const user = this.todo.value;
+    let user = this.todo.value;
     console.log(user.correo, user.contra);
+
     this.userservice.login(user.correo, user.contra).subscribe(
       Response => {
         console.log('Usted se ha logueado');
@@ -42,7 +43,7 @@ export class LoginPage {
         this.navCtrl.navigateRoot('/paneladmin', { animated: true });
         //  this.todo.reset();
       }, error => {
-        // console.log(value <any> error);
+        console.log(error as any);
         this.uiService.alertaInformatica('Usuario y/o contraseña incorrecta');
       }
     );

@@ -24,4 +24,6 @@ const routes: Routes = [
   ],
   declarations: [LoginPage]
 })
-export class LoginPageModule {}
+export class LoginPageModule {
+  constructor( public navCtrl: NavController ) { }
+}

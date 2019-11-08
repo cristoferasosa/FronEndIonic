@@ -14,7 +14,7 @@ export class UserService {
 
   // tslint:disable-next-line:variable-name
   constructor(public _http: HttpClient) {
-    this.url = 'https://b0b39d8d.ngrok.io/';
+    this.url = 'https://c544ba11.ngrok.io/';
   }
 
   httpOptions = {
@@ -64,9 +64,9 @@ export class UserService {
   }
 
   public login(correo: string, contra: string) {
-    const login = {
-      correo,
-      contra
+    let login = {
+      'correo' : correo,
+      'contraseña': contra
     };
     return this._http.post(this.url + 'api/accountmanagement/login', login, this.httpOptions).pipe(
         retry(1),
