@@ -11,8 +11,7 @@ const routes: Routes = [
   { path: 'solicitucredito', loadChildren: './solicitucredito/solicitucredito.module#SolicitucreditoPageModule' },
   { path: 'listusers', loadChildren: './listusers/listusers.module#ListusersPageModule' },
   { path: 'listcredits', loadChildren: './listcredits/listcredits.module#ListcreditsPageModule' },
-  { path: 'createuser', loadChildren: './createuser/createuser.module#CreateuserPageModule' }
-
+  { path: 'createuser', loadChildren: './createuser/createuser.module#CreateuserPageModule' },
 ];
 @NgModule({
   imports: [

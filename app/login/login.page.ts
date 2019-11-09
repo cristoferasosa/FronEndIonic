@@ -19,14 +19,14 @@ export class LoginPage {
 
   constructor(
     private formBuilder: FormBuilder,
-    private userservice: UserService,
+    private _userService: UserService,
     private storage: Storage,
     private navCtrl: NavController,
     private uiService: UiServiceService
   ) {
     this.todo = this.formBuilder.group({
       correo: ['', Validators.required],
-      contra: ['', Validators.required]
+      contra: ['', Validators.required],
   });
 }
 
@@ -34,16 +34,16 @@ export class LoginPage {
     let user = this.todo.value;
     console.log(user.correo, user.contra);
 
-    this.userservice.login(user.correo, user.contra).subscribe(
+    this._userService.login(user.correo, user.contra).subscribe(
       Response => {
         console.log('Usted se ha logueado');
         console.log(Response);
         this.response = Response;
         this.storage.set('user', Response);
         this.navCtrl.navigateRoot('/paneladmin', { animated: true });
-        //  this.todo.reset();
+        // this.todo.reset();
       }, error => {
-        console.log(error as any);
+        console.log(<any> error);
         this.uiService.alertaInformatica('Usuario y/o contraseña incorrecta');
       }
     );

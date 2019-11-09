@@ -10,8 +10,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="toolbar-background">
-    <ion-content center text-center>
+<ion-content class="toolbar-background">    
         <form [formGroup]="person" (ngSubmit)="logForm()">
             <ion-item>
                 <ion-label>Nombre:</ion-label>                
@@ -49,8 +48,10 @@
                 </ion-select>
             </ion-item>
             <ion-item>
-                <ion-label>Genero:<ion-icon name="woman"></ion-icon>
-                    <ion-icon name="man"></ion-icon></ion-label>   
+                <ion-label>Genero:
+                    <ion-icon name="woman"></ion-icon>
+                    <ion-icon name="man"></ion-icon>
+                </ion-label>   
 
                 <ion-select formControlName="genero" placeholder="Seleciona una opcion" required>
                     <ion-select-option value="Masculino">Hombre</ion-select-option>
@@ -58,6 +59,5 @@
                 </ion-select>
             </ion-item>
             <button class="button" [disabled]="person.invalid" ion-button type=" submit " block>Registrar Usuario</button>            
-        </form>
-    </ion-content>
+        </form>    
 </ion-content>

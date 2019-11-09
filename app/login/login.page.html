@@ -1,28 +1,29 @@
  <ion-header>
     <ion-toolbar>
-      <ion-title class="text-center">
+      <ion-title>
         Iniciar Sesion
       </ion-title>
     </ion-toolbar>
   </ion-header> 
+
   <ion-content class="ion-text-center">
               <form [formGroup]="todo" (ngSubmit)="logForm()">
                 <ion-item>
-                    <ion-icon name="mail"></ion-icon>
-                  <ion-label>Correo:</ion-label>        
+                  <ion-label>Correo:</ion-label>
+                  <ion-icon name="mail"></ion-icon>                          
                   <ion-input type="email" formControlName="correo"required></ion-input>
                 </ion-item> 
             
-                <ion-item>
-                    <ion-icon name="key"></ion-icon>   
-                  <ion-label>Contraseña:</ion-label>                       
+                <ion-item>                       
+                  <ion-label>Contraseña:</ion-label>
+                  <ion-icon name="key"></ion-icon>                       
                   <ion-input type="password" formControlName="contra" required></ion-input>
                 </ion-item>
                 <br>
                 <button ion-button class="button" type="submit" color="secondary" [disabled]="!todo.valid" block>Ingresar</button>              
               </form>
 
-              <ion-card href="/createuser" color="success">
+              <ion-card href="/createuser" color="primary">
                 <h4>Registrarse</h4>
               </ion-card>            
   </ion-content>

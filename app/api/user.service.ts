@@ -3,8 +3,6 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
 import { Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
 
-
-
 @Injectable({
   providedIn: 'root'
 })
@@ -12,7 +10,6 @@ export class UserService {
 
   public url: string;
 
-  // tslint:disable-next-line:variable-name
   constructor(public _http: HttpClient) {
     this.url = 'https://c544ba11.ngrok.io/';
   }
@@ -63,10 +60,10 @@ export class UserService {
     );
   }
 
-  public login(correo: string, contra: string) {
+  public login(correo: string, contrasena: string) {
     let login = {
       'correo' : correo,
-      'contraseña': contra
+      'contrasena': contrasena
     };
     return this._http.post(this.url + 'api/accountmanagement/login', login, this.httpOptions).pipe(
         retry(1),
@@ -80,7 +77,7 @@ export class UserService {
     );
   }
   public sendCredit( monto_solicitado: number, id_usuario: number,  descripcion: string) {
-    const credito = {
+    let credito = {
         'monto_solicitado': monto_solicitado,
         'id_cantidad_cuota': 1,
         'id_usuario': id_usuario,

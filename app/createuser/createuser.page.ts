@@ -13,9 +13,12 @@ import { UiServiceService } from '../api/ui-service.service';
   styleUrls: ['./createuser.page.scss'],
 })
 export class CreateuserPage {
-  public person: FormGroup;
+  private person: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private userservice: UserService) {
+  constructor(private formBuilder: FormBuilder,
+    private _userservice: UserService,
+    private navCtrl: NavController,
+    private uiService: UiServiceService) {
     this.person = this.formBuilder.group({
       nombre: ['', Validators.required],
       apellido: ['', Validators.required],
@@ -28,11 +31,11 @@ export class CreateuserPage {
     });
    }
    logForm() {
-     const user = this.person.value;
+     let user = this.person.value;
      let newDataBinaryGender = 0;
      let newDataBinaryMarital = 0;
 
-     if (user.genero === 'Masculino' || user.marital === 'Casado') {
+     if (user.genero == "Masculino" || user.marital == "Casado") {
        newDataBinaryGender = 1;
        newDataBinaryMarital = 1;
      } else {
@@ -40,15 +43,17 @@ export class CreateuserPage {
        newDataBinaryMarital = 2;
      }
 
-     this.userservice.sendInfo(user.nombre, user.apellido,
+     this._userservice.sendInfo(user.nombre, user.apellido,
        user.edad, user.dpi, user.correo, user.contra, newDataBinaryGender, newDataBinaryMarital).subscribe(
          Response => {
            console.log(Response);
            this.person.reset();
+           this.navCtrl.navigateRoot('/login', { animated: true });
          },
          error => {
            alert('Algo salio mal');
-           console.log(error as any);
+           console.log(<any> error);
+           this.uiService.alertaInformatica('Datos incorrectos intente de nuevo');
          }
        );
    }
